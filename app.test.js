@@ -28,7 +28,7 @@ describe('POST /users - User Creation API', () => {
             .send({
                 username: 'futureuser',
                 gender: 'female',
-                dob: futureDate // Ngày ở tương lai
+                dob: futureDate // Ngày sinh ở tương lai
             });
 
         expect(response.statusCode).toBe(400);
