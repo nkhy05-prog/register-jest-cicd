@@ -12,7 +12,7 @@ describe('POST /users - User Creation API', () => {
         const response = await request(app)
             .post('/users')
             .send({
-                username: 'uname', // Ký tự đặc biệt
+                username: 'user@name!', // Ký tự đặc biệt
                 gender: 'male',
                 dob: '1990-01-01'
             });
@@ -28,7 +28,7 @@ describe('POST /users - User Creation API', () => {
             .send({
                 username: 'futureuser',
                 gender: 'female',
-                dob: today // Ngày sinh ở tương lai
+                dob: futureDate // Ngày sinh ở tương lai
             });
 
         expect(response.statusCode).toBe(400);
@@ -38,7 +38,7 @@ describe('POST /users - User Creation API', () => {
     // Test Case 3: Tạo tài khoản thỏa mãn tất cả điều kiện
     test('Nên tạo tài khoản thành công với status 201', async () => {
         const validUser = {
-            username: 'valid@user_123', // Hợp lệ: chữ, số, gạch dưới
+            username: 'valid_user_123', // Hợp lệ: chữ, số, gạch dưới
             gender: 'male', // Hợp lệ
             dob: '1995-10-25' // Hợp lệ: không ở tương lai
         };
